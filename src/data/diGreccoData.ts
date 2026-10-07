@@ -1,5 +1,4 @@
 import { Song, ShowPackage, SocialLink } from "../types";
-import ladoBCover from "../assets/images/regenerated_image_1790078400420.jpg";
 
 export const DI_GRECCO_INFO = {
   name: "Di Grecco",
@@ -131,7 +130,7 @@ export const SONGS: Song[] = [
     spotifyUrl: "https://open.spotify.com/intl-es/track/2qCOLWb67R5997SqY8qkcO?si=7512c2f35d8446fe",
     previewUrl: "/audio/lado-b.mp3",
     spotifyPreviewUrl: "https://p.scdn.co/mp3-preview/3e6b63c19dddf9e28b75f3eb96473c48ed206a61",
-    coverImage: ladoBCover,
+    coverImage: "/assets/images/regenerated_image_1790078400420.jpg",
     bpm: 112,
     highlightText: "Composição Autoral • Harmonia Vocal",
     stats: "Crítica Elogiada",
