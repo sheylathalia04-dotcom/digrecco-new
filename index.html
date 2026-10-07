@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Di Grecco - Site Oficial & Shows</title>
+  <meta name="description" content="Página web oficial da dupla pop brasileira Di Grecco (Camilla & Giovanna). Músicas, prévias no Spotify, contratação para festas de 15 anos e assistente virtual inteligente." />
+  <meta property="og:title" content="Di Grecco - Site Oficial & Shows" />
+  <meta property="og:description" content="Página web oficial da dupla pop brasileira Di Grecco (Camilla & Giovanna). Músicas, prévias no Spotify, contratação para festas de 15 anos e assistente virtual inteligente." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Pure Vanilla CSS Stylesheet -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP NAVBAR
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand with Real Photo of Camilla & Giovanna Di Grecco -->
+      <a href="#/" class="brand-link" onclick="navigateToPage('home'); return false;">
+        <div class="brand-avatar-box">
+          <img src="https://image-cdn-fa.spotifycdn.com/image/ab6761610000e5eb25b14169b981ec08ff0637c6" alt="Di Grecco Foto Oficial" />
+          <span class="online-dot"></span>
+        </div>
+        <div class="brand-text-col">
+          <div class="brand-title-row">
+            <span class="brand-name">DI GRECCO</span>
+            <span class="verified-badge">Verificado</span>
+          </div>
+          <span class="brand-sub">Camilla &amp; Giovanna</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
+        <a href="#/" class="nav-link active" data-page="home" onclick="navigateToPage('home'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span data-i18n="navHome">Inicio</span>
+        </a>
+        <a href="#/musicas" class="nav-link" data-page="musicas" onclick="navigateToPage('musicas'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+          <span data-i18n="navMusic">Músicas &amp; Spotify</span>
+        </a>
+        <a href="#/debutantes" class="nav-link" data-page="debutantes" onclick="navigateToPage('debutantes'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          <span data-i18n="navDebutantes">Shows 15 Anos</span>
+        </a>
+        <a href="#/biografia" class="nav-link" data-page="biografia" onclick="navigateToPage('biografia'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span data-i18n="navBio">Biografia</span>
+        </a>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="header-actions">
+        <!-- Multilingual Switcher -->
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="pt" onclick="setLanguage('pt')" title="Português (Brasil)">
+            <span>🇧🇷</span><span>PT</span>
+          </button>
+          <button class="lang-btn" data-lang="es" onclick="setLanguage('es')" title="Español">
+            <span>🇪🇸</span><span>ES</span>
+          </button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')" title="English">
+            <span>🇺🇸</span><span>EN</span>
+          </button>
+        </div>
+
+        <!-- AI Chatbot Button -->
+        <button class="btn-ai-chat" onclick="openChatModal()" title="Abrir DiGrecco Bot">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+            <path d="M3 14v-3a9 9 0 0 1 18 0v3" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+            <rect x="2" y="13" width="3" height="5" rx="1.5" fill="#38bdf8"></rect>
+            <rect x="19" y="13" width="3" height="5" rx="1.5" fill="#38bdf8"></rect>
+            <rect x="5.5" y="9" width="13" height="11" rx="3.5" fill="#18181b" stroke="#f472b6" stroke-width="1.5"></rect>
+            <circle cx="9.5" cy="14" r="1.2" fill="#38bdf8"></circle>
+            <circle cx="14.5" cy="14" r="1.2" fill="#38bdf8"></circle>
+            <path d="M10 17c.6.6 1.4.8 2 .8s1.4-.2 2-.8" stroke="#f472b6" stroke-width="1.2" stroke-linecap="round"></path>
+            <line x1="12" y1="9" x2="12" y2="4" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"></line>
+            <circle cx="12" cy="3" r="1.8" fill="#fbbf24"></circle>
+          </svg>
+          <span data-i18n="navVipChat">DiGrecco Bot</span>
+        </button>
+
+        <!-- Direct WhatsApp Booking (Right side - Label is WhatsApp) -->
+        <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Show%20de%2015%20Anos." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-header" title="WhatsApp Oficial">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          <span data-i18n="navWhatsapp">WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Mobile Controls -->
+      <div class="mobile-controls">
+        <button class="btn-icon" onclick="openChatModal()" title="DiGrecco Bot">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="3"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg>
+        </button>
+        <button class="btn-icon" id="mobile-menu-toggle" aria-label="Abrir Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu" id="mobile-menu-dropdown">
+      <div class="lang-selector" style="width: 100%; justify-content: space-around;">
+        <button class="lang-btn active" data-lang="pt" onclick="setLanguage('pt')"><span>🇧🇷</span> PT-BR</button>
+        <button class="lang-btn" data-lang="es" onclick="setLanguage('es')"><span>🇪🇸</span> ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLanguage('en')"><span>🇺🇸</span> EN</button>
+      </div>
+      <a href="#/" class="nav-link active" data-page="home" onclick="navigateToPage('home'); return false;" data-i18n="navHome">Inicio</a>
+      <a href="#/musicas" class="nav-link" data-page="musicas" onclick="navigateToPage('musicas'); return false;" data-i18n="navMusic">Músicas &amp; Spotify</a>
+      <a href="#/debutantes" class="nav-link" data-page="debutantes" onclick="navigateToPage('debutantes'); return false;" data-i18n="navDebutantes">Shows 15 Anos</a>
+      <a href="#/biografia" class="nav-link" data-page="biografia" onclick="navigateToPage('biografia'); return false;" data-i18n="navBio">Biografia</a>
+      <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-header" style="justify-content:center;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       PAGE 1: HOME (INICIO)
+       ========================================================================= -->
+  <div id="page-home" class="page-view page-active">
+    <section id="hero" class="hero-section">
+      <!-- Ambient Glow background overlays -->
+      <div class="ambient-glow" style="top:20%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:linear-gradient(135deg, rgba(236,72,153,0.2), rgba(168,85,247,0.2), rgba(34,211,238,0.1));"></div>
+      <div class="ambient-glow" style="top:10%; right:5%; width:280px; height:280px; background:rgba(236,72,153,0.15);"></div>
+      <div class="ambient-glow" style="bottom:10%; left:5%; width:320px; height:320px; background:rgba(168,85,247,0.15);"></div>
+
+      <div class="container hero-grid">
+        <!-- Left text column -->
+        <div class="hero-left">
+          <div class="pill-badge">
+            <span class="ping-dot animate-pulse"></span>
+            <span data-i18n="heroBadge">DUPLA POP BRASILEIRA • CAMILLA &amp; GIOVANNA</span>
+          </div>
+
+          <h1 class="hero-headline">
+            <span data-i18n="heroTitleMain">A Nova Era do Pop</span>
+            <span class="text-gradient" data-i18n="heroTitleAccent">Brasileiro</span>
+          </h1>
+
+          <p class="hero-sub" data-i18n="heroDesc">
+            De arquitetas a fenômenos da música pop. Camilla e Giovanna Di Grecco transformam palcos em verdadeiras obras de arte audiovisual com dança sincronizada, vocais ao vivo eletrizantes e projetos exclusivos para festas de 15 anos.
+          </p>
+
+          <div class="quote-badge">
+            <span data-i18n="heroQuote">“Unimos a precisão da arquitetura à vibração visceral do pop nacional.”</span>
+            <span class="quote-author">— Camilla &amp; Giovanna Di Grecco</span>
+          </div>
+
+          <!-- Action CTAs -->
+          <div class="hero-cta-group">
+            <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Show%20de%2015%20Anos." target="_blank" rel="noopener noreferrer" class="btn-primary-glow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-i18n="heroBookCta">Contratar Show de 15 Anos</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+
+            <a href="#/musicas" onclick="navigateToPage('musicas'); return false;" class="btn-secondary-glass">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f472b6"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span data-i18n="heroListenCta">Ouvir Prévias das Músicas</span>
+            </a>
+
+            <button onclick="openChatModal()" class="btn-secondary-glass" style="color:var(--purple-400); border-color:rgba(168,85,247,0.3)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="3"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg>
+              <span>DiGrecco Bot</span>
+            </button>
+          </div>
+
+          <!-- Verified Trust Strip -->
+          <div class="trust-strip">
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <span>Atención Oficial por WhatsApp</span>
+            </div>
+            <div class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>Abertura oficial show Luísa Sonza</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Card -->
+        <div class="hero-card-container">
+          <div class="hero-glow-ring"></div>
+          <div class="hero-main-card">
+            <div class="hero-image-wrapper">
+              <img src="https://image-cdn-fa.spotifycdn.com/image/ab6761610000e5eb25b14169b981ec08ff0637c6" alt="Camilla e Giovanna Di Grecco" />
+              <div class="image-overlay-gradient"></div>
+
+              <div class="floating-live-tag">
+                <span class="red-dot animate-pulse"></span>
+                <span>EM TURNÊ • SHOWS 15 ANOS</span>
+              </div>
+
+              <a href="https://open.spotify.com/intl-es/artist/60IuUW9ZO7IiD4t1hwmO9d" target="_blank" rel="noopener noreferrer" class="floating-spotify-tag">
+                <span>Spotify Oficial</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+
+              <div class="card-bottom-info">
+                <div style="display:flex; align-items:center; justify-content:space-between">
+                  <div>
+                    <p style="font-size:11px; text-transform:uppercase; color:#f472b6; font-weight:800">Camilla &amp; Giovanna</p>
+                    <h4 style="font-family:var(--font-display); font-weight:800; color:#fff; font-size:1.1rem">Di Grecco Live Stage Experience</h4>
+                  </div>
+                  <div class="eq-container">
+                    <span class="eq-bar pink animate-eq-1"></span>
+                    <span class="eq-bar purple animate-eq-2"></span>
+                    <span class="eq-bar cyan animate-eq-3"></span>
+                    <span class="eq-bar pink animate-eq-4"></span>
+                  </div>
+                </div>
+                <p style="font-size:11px; color:#d4d4d8">Cuiabá • São Paulo • Festas de 15 Anos em todo o Brasil</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Floating Stat badges -->
+          <div class="stat-pills-row">
+            <div class="glass-panel stat-box pink">
+              <div class="stat-val">+344k Views</div>
+              <div class="stat-lbl">No clipe 'Checkmate'</div>
+            </div>
+            <div class="glass-panel stat-box purple">
+              <div class="stat-val">100% Coreografado</div>
+              <div class="stat-lbl">Dança pop &amp; Sincronismo</div>
+            </div>
+            <div class="glass-panel stat-box cyan">
+              <div class="stat-val">Shows 15 Anos</div>
+              <div class="stat-lbl">Experiência inesquecível</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated Multi-Page Navigation Portal on Home -->
+    <section class="home-pages-portal">
+      <div class="container">
+        <div class="portal-header">
+          <div class="pill-badge" style="background:rgba(168,85,247,0.15); border-color:rgba(168,85,247,0.3); margin-bottom:0.75rem;">
+            <span>✨ EXPLORA LAS PÁGINAS OFICIALES</span>
+          </div>
+          <h2 class="portal-title">Páginas de Di Grecco</h2>
+          <p class="portal-desc">Haz clic en cualquiera de las secciones para acceder a su página completa y detallada:</p>
+        </div>
+
+        <div class="portal-grid">
+          <!-- Page 1: Musicas -->
+          <a href="#/musicas" onclick="navigateToPage('musicas'); return false;" class="portal-card">
+            <div>
+              <div class="portal-icon-box music">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+              </div>
+              <h3 class="portal-card-title">Músicas &amp; Spotify</h3>
+              <p class="portal-card-desc">Catálogo completo, 6 canciones oficiales, reproductor con audios reales de estudio y enlace a Spotify.</p>
+            </div>
+            <span class="portal-card-link">Ver Página de Músicas →</span>
+          </a>
+
+          <!-- Page 2: Shows 15 Anos -->
+          <a href="#/debutantes" onclick="navigateToPage('debutantes'); return false;" class="portal-card">
+            <div>
+              <div class="portal-icon-box shows">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <h3 class="portal-card-title">Shows 15 Anos</h3>
+              <p class="portal-card-desc">Canto en vivo con covers adaptados, apertura de pista electrizante, ensayos con la debutante y solicitud de cotización.</p>
+            </div>
+            <span class="portal-card-link">Ver Página de Shows →</span>
+          </a>
+
+          <!-- Page 3: Biografia -->
+          <a href="#/biografia" onclick="navigateToPage('biografia'); return false;" class="portal-card">
+            <div>
+              <div class="portal-icon-box bio">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <h3 class="portal-card-title">Biografia</h3>
+              <p class="portal-card-desc">La historia verídica de Camilla &amp; Giovanna: graduadas en Arquitectura y Urbanismo hasta convertirse en referentes pop.</p>
+            </div>
+            <span class="portal-card-link">Ver Biografía Completa →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div> <!-- end #page-home -->
+
+  <!-- =========================================================================
+       PAGE 2: MÚSICAS & SPOTIFY
+       ========================================================================= -->
+  <div id="page-musicas" class="page-view">
+    <div class="page-top-breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <a href="#/" class="breadcrumb-btn" onclick="navigateToPage('home'); return false;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span data-i18n="backToHome">Volver al Inicio</span>
+          </a>
+          <span class="breadcrumb-slash">/</span>
+          <span class="breadcrumb-tag">🎵 Músicas &amp; Spotify Oficial</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="musicas" class="section-wrapper" style="background:#07070b">
+    <div class="ambient-glow" style="top:25%; left:0; width:500px; height:500px; background:rgba(236,72,153,0.12);"></div>
+    <div class="ambient-glow" style="bottom:10%; right:0; width:500px; height:500px; background:rgba(29,185,84,0.15);"></div>
+
+    <div class="container" style="position:relative; z-index:10">
+      <!-- Section Header -->
+      <div class="section-header-center">
+        <div class="pill-badge" style="background:rgba(29,185,84,0.15); border-color:rgba(29,185,84,0.4)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1DB954" stroke-width="2" class="animate-pulse"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49"></path></svg>
+          <span style="color:#1DB954" data-i18n="musicBadge">ÁUDIO REAL DE ESTÚDIO • 30S PREVIEW</span>
+        </div>
+
+        <h2 class="section-title" data-i18n="musicTitle">Músicas Oficiais da Di Grecco</h2>
+        <p class="section-desc" data-i18n="musicSubtitle">
+          Ouça trechos 100% REAIS com as vozes autênticas de Camilla e Giovanna Di Grecco gravadas em estúdio. Para ouvir a faixa completa sem cortes, clique no link oficial do Spotify.
+        </p>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs-row">
+          <button id="filter-btn-all" class="filter-btn active-all" onclick="filterSongs('all')" data-i18n="filterAll">Todas as Músicas (6)</button>
+          <button id="filter-btn-hits" class="filter-btn" onclick="filterSongs('hits')" data-i18n="filterHits">Hits &amp; Singles</button>
+          <button id="filter-btn-15" class="filter-btn" onclick="filterSongs('15')" data-i18n="filter15">Especial Debutantes</button>
+        </div>
+      </div>
+
+      <!-- PROMINENT SPOTIFY SNIPPET & NOTICE BANNER -->
+      <div class="featured-player-card glass-panel-glow">
+        <div class="player-top-row">
+          <div class="player-left-meta">
+            <div class="player-cover-box">
+              <img id="featured-cover-img" src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273cdcd2604a8f571c25ed9abb9" alt="Checkmate Cover" />
+              <div id="featured-cover-overlay" class="player-cover-overlay" style="display:none">
+                <div class="eq-container">
+                  <span class="eq-bar green animate-eq-1"></span>
+                  <span class="eq-bar white animate-eq-2"></span>
+                  <span class="eq-bar green animate-eq-3"></span>
+                  <span class="eq-bar pink animate-eq-4"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="player-details-col">
+              <div class="spotify-pill-notice">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span data-i18n="spotifyAlert">Canción completa en Spotify</span>
+              </div>
+
+              <h3 id="featured-song-title" class="active-song-title">Checkmate</h3>
+
+              <p class="player-meta-line">
+                <strong style="color:#ffffff">Di Grecco</strong>
+                <span>•</span>
+                <span id="featured-song-year">2022</span>
+                <span>•</span>
+                <span style="color:#1DB954; font-weight:700">Voz Real de Estúdio</span>
+              </p>
+
+              <p id="featured-song-desc" style="font-size:12px; color:#a1a1aa; max-width:540px; line-height:1.4">
+                O hit divisor de águas da Di Grecco. Clipe cinematográfico com mais de 344 mil views, combinando batidas pop enérgicas, estética inspirada nos anos 2000 e coreografias sincronizadas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Play/Pause & Direct Spotify Link Buttons -->
+          <div class="player-actions-col">
+            <button id="featured-play-btn" class="btn-play-toggle" onclick="togglePlayCurrent()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span data-i18n="btnPlaySnippet">Reproduzir Áudio Real (30s)</span>
+            </button>
+
+            <a id="featured-spotify-link" href="https://open.spotify.com/intl-es/track/05KtX6Rpt3KmPBox18Lgew?si=77bb22edac964ac2" target="_blank" rel="noopener noreferrer" class="btn-spotify-direct" title="Escuchar canción completa en Spotify">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.57.39-.87.21-2.39-1.46-5.4-1.79-8.94-.98-.35.08-.69-.14-.77-.49-.08-.34.14-.68.49-.77 3.88-.89 7.21-.51 9.88 1.13.3.18.39.57.21.9zM17.8 13.7c-.23.37-.71.49-1.08.26-2.73-1.68-6.9-2.17-10.13-1.19-.42.13-.86-.11-.98-.53-.13-.42.11-.86.53-.98 3.7-1.12 8.31-.57 11.4 1.34.37.24.49.72.26 1.1zm.15-2.85c-3.28-1.95-8.7-2.13-11.83-1.18-.5.15-1.04-.13-1.19-.64-.15-.5.14-1.04.64-1.19 3.65-1.11 9.64-.89 13.43 1.36.45.27.6.86.33 1.31-.27.46-.86.6-1.38.34z"/></svg>
+              <span data-i18n="spotifyAlert">Canción completa en Spotify</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+
+            <button id="mute-toggle-btn" class="btn-mute" onclick="toggleMute()" title="Mutear / Desmutear">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrubbable Waveform / Progress bar -->
+        <div class="scrub-section">
+          <div class="scrub-time-row">
+            <span id="scrub-current-time" class="time-current">0:00</span>
+            <span style="display:flex; align-items:center; gap:6px; color:#f472b6; font-weight:700">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+              <span id="player-status-subtitle">Reproduzindo Vocal Original de Estúdio (30s)</span>
+            </span>
+            <span id="scrub-duration-time" class="time-duration">0:30</span>
+          </div>
+
+          <div id="scrub-track" class="scrub-track" onclick="seekAudio(event)">
+            <div id="scrub-progress-bar" class="scrub-progress"></div>
+          </div>
+        </div>
+
+        <!-- Official Spotify Embed Widget -->
+        <div class="embed-preview-wrapper">
+          <div class="embed-header-row">
+            <span style="font-weight:700; display:flex; align-items:center; gap:6px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.57.39-.87.21-2.39-1.46-5.4-1.79-8.94-.98-.35.08-.69-.14-.77-.49-.08-.34.14-.68.49-.77 3.88-.89 7.21-.51 9.88 1.13.3.18.39.57.21.9zM17.8 13.7c-.23.37-.71.49-1.08.26-2.73-1.68-6.9-2.17-10.13-1.19-.42.13-.86-.11-.98-.53-.13-.42.11-.86.53-.98 3.7-1.12 8.31-.57 11.4 1.34.37.24.49.72.26 1.1zm.15-2.85c-3.28-1.95-8.7-2.13-11.83-1.18-.5.15-1.04-.13-1.19-.64-.15-.5.14-1.04.64-1.19 3.65-1.11 9.64-.89 13.43 1.36.45.27.6.86.33 1.31-.27.46-.86.6-1.38.34z"/></svg>
+              <span>Widget Oficial de Spotify Player:</span>
+            </span>
+            <a id="featured-spotify-widget-link" href="https://open.spotify.com/intl-es/track/05KtX6Rpt3KmPBox18Lgew?si=77bb22edac964ac2" target="_blank" rel="noopener noreferrer" style="color:#1DB954; font-weight:800; display:flex; align-items:center; gap:4px">
+              <span data-i18n="spotifyAlert">Canción completa en Spotify</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+
+          <div class="embed-container">
+            <iframe id="spotify-embed-iframe" src="https://open.spotify.com/embed/track/05KtX6Rpt3KmPBox18Lgew?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Real Song Cards Grid -->
+      <div id="songs-grid-container" class="songs-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <!-- Global Discography Callout Strip -->
+      <div class="callout-strip">
+        <div>
+          <h4 style="font-family:var(--font-display); font-weight:800; font-size:1.4rem; color:#ffffff; margin-bottom:4px">
+            Discografia Completa da Di Grecco no Spotify
+          </h4>
+          <p style="font-size:13px; color:#d4d4d8">
+            Siga o perfil oficial para ouvir as versões completas de "Mi Amor", "Checkmate", "Veneno", "Na Minha Mão", "Lado B" e "Anjo Querubim".
+          </p>
+        </div>
+
+        <a href="https://open.spotify.com/intl-es/artist/60IuUW9ZO7IiD4t1hwmO9d" target="_blank" rel="noopener noreferrer" class="btn-spotify-direct">
+          <span>Seguir no Spotify Oficial</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  </div> <!-- end #page-musicas -->
+
+  <!-- =========================================================================
+       PAGE 3: SHOWS 15 ANOS (DEBUTANTES)
+       ========================================================================= -->
+  <div id="page-debutantes" class="page-view">
+    <div class="page-top-breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <a href="#/" class="breadcrumb-btn" onclick="navigateToPage('home'); return false;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span data-i18n="backToHome">Volver al Inicio</span>
+          </a>
+          <span class="breadcrumb-slash">/</span>
+          <span class="breadcrumb-tag">✨ Shows para Festas de 15 Anos</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="debutantes" class="section-wrapper" style="background:#0a0a10">
+    <div class="ambient-glow" style="top:10%; right:15%; width:500px; height:500px; background:rgba(168,85,247,0.12);"></div>
+    <div class="ambient-glow" style="bottom:10%; left:5%; width:500px; height:500px; background:rgba(236,72,153,0.12);"></div>
+
+    <div class="container" style="position:relative; z-index:10">
+      <!-- Section Header -->
+      <div class="section-header-center">
+        <div class="pill-badge" style="background:rgba(236,72,153,0.12); border-color:rgba(236,72,153,0.3)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span style="color:#f472b6" data-i18n="debutantesBadge">ESPECIALISTAS EM DEBUTANTES</span>
+        </div>
+
+        <h2 class="section-title" data-i18n="debutantesTitle">Shows Eletrizantes para Festas de 15 Anos</h2>
+        <p class="section-desc" data-i18n="debutantesSubtitle">
+          O momento mais mágico da sua vida merece o show de dança pop mais enérgico do Brasil. Camilla e Giovanna Di Grecco criam uma experiência inesquecível no palco, com dança sincronizada, corpo coreográfico profissional, abertura de pista e coreografia exclusiva com a debutante.
+        </p>
+      </div>
+
+      <!-- 3 Real Vertical Videos from Official Instagram (@digrecco) -->
+      <div style="text-align:center; margin-bottom:1.5rem">
+        <h3 style="font-family:var(--font-display); font-weight:800; font-size:1.6rem; color:#fff" data-i18n="videosTitle">Vídeos Reais dos Shows de 15 Anos</h3>
+        <p class="videos-subheading" data-i18n="videosSub">Assista às apresentações reais gravadas diretamente nos eventos ao vivo</p>
+      </div>
+
+      <div class="reels-grid">
+        <!-- Video 1 -->
+        <div class="reel-card">
+          <div class="reel-video-container">
+            <video controls playsinline preload="metadata" poster="/videos/poster1.jpg">
+              <source src="/videos/reel1.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="reel-card">
+          <div class="reel-video-container">
+            <video controls playsinline preload="metadata" poster="/videos/poster2.jpg">
+              <source src="/videos/reel2.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="reel-card">
+          <div class="reel-video-container">
+            <video controls playsinline preload="metadata" poster="/videos/poster3.jpg">
+              <source src="/videos/reel3.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="pillars-grid">
+        <div class="glass-panel pillar-card pink">
+          <div class="pillar-num">01</div>
+          <h4 class="pillar-title" data-i18n="reason1Title">Visão Arquitetônica de Palco</h4>
+          <p class="pillar-desc" data-i18n="reason1Desc">
+            Formadas em arquitetura, as irmãs planejam a iluminação, cenografia e passarela para valorizar cada foto e vídeo da debutante.
+          </p>
+        </div>
+
+        <div class="glass-panel pillar-card purple">
+          <div class="pillar-num">02</div>
+          <h4 class="pillar-title" data-i18n="reason2Title">Coreografias Pop &amp; Sincronismo</h4>
+          <p class="pillar-desc" data-i18n="reason2Desc">
+            Corpo coreográfico de ponta e passos sincronizados milimetricamente que transformam a pista em um verdadeiro espetáculo pop.
+          </p>
+        </div>
+
+        <div class="glass-panel pillar-card cyan">
+          <div class="pillar-num">03</div>
+          <h4 class="pillar-title" data-i18n="reason3Title">A Debutante Brilha no Palco</h4>
+          <p class="pillar-desc" data-i18n="reason3Desc">
+            Ensaio e momento especial para a aniversariante dançar junto com a Di Grecco e seus bailarinos no momento clímax.
+          </p>
+        </div>
+      </div>
+
+      <!-- Direct WhatsApp Contracting Call-to-Action (Sin formulario de campos) -->
+      <div class="quote-box glass-panel-glow">
+        <div style="text-align:center; max-width:680px; margin:0 auto">
+          <!-- WhatsApp Badge -->
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#34d399; font-weight:800; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); padding:6px 16px; border-radius:9999px; margin-bottom:1.25rem">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span data-i18n="bookingBadge">CONTRATACIONES &amp; SHOWS</span>
+          </div>
+
+          <h3 style="font-family:var(--font-display); font-weight:800; font-size:2rem; color:#ffffff; margin-bottom:0.75rem; letter-spacing:-0.02em" data-i18n="bookingTitle">
+            Contrataciones Directas para Fiestas de 15 Años
+          </h3>
+
+          <p style="font-size:15px; color:#d4d4d8; line-height:1.6; margin-bottom:1.5rem" data-i18n="bookingDesc">
+            Para contrataciones, disponibilidad de fechas y presupuestos oficiales de la gira de Di Grecco, escribe directamente a la producción por WhatsApp. ¡Conversa en vivo con el equipo y coordina todos los detalles de tu fiesta sin intermediarios!
+          </p>
+
+          <!-- WhatsApp Number Badge Box -->
+          <div style="display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); padding:8px 20px; border-radius:1rem; margin-bottom:1.75rem">
+            <span style="font-size:13px; color:#a1a1aa" data-i18n="bookingDirectLabel">WhatsApp Oficial de Producción:</span>
+            <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20contrata%C3%A7%C3%A3o%20para%20Show%20de%2015%20Anos." target="_blank" rel="noopener noreferrer" style="font-size:14px; font-weight:800; color:#34d399; text-decoration:none">
+              +55 11 97308-7302
+            </a>
+          </div>
+
+          <!-- The Two Buttons Row -->
+          <div class="form-actions-row">
+            <button type="button" class="btn-chat-quote-action" onclick="openChatModal()" title="Consultar no Chatbot IA">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span data-i18n="btnConsultChat">Consultar no Chatbot IA</span>
+            </button>
+
+            <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20contrata%C3%A7%C3%A3o%20para%20Show%20de%2015%20Anos." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-submit" title="Enviar Consulta Directa a WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span data-i18n="btnSendWhatsApp">Enviar Consulta Directa a WhatsApp</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <p style="text-align:center; font-size:11px; color:#71717a; margin-top:1.5rem">
+            🔒 Atendimento direto com a produção executiva da Di Grecco • Cobertura nacional e internacional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div> <!-- end #page-debutantes -->
+
+  <!-- =========================================================================
+       PAGE 4: BIOGRAFIA OFICIAL
+       ========================================================================= -->
+  <div id="page-biografia" class="page-view">
+    <div class="page-top-breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <a href="#/" class="breadcrumb-btn" onclick="navigateToPage('home'); return false;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span data-i18n="backToHome">Volver al Inicio</span>
+          </a>
+          <span class="breadcrumb-slash">/</span>
+          <span class="breadcrumb-tag">📖 Biografia &amp; Trajetória Oficial</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="biografia" class="section-wrapper" style="background:#08080e">
+    <div class="container" style="position:relative; z-index:10">
+      <!-- Section Header -->
+      <div class="section-header-center">
+        <div class="pill-badge" style="background:rgba(34,211,238,0.12); border-color:rgba(34,211,238,0.3)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          <span style="color:#67e8f9" data-i18n="bioBadge">HISTÓRIA REAL &amp; TRAJETÓRIA</span>
+        </div>
+
+        <h2 class="section-title" data-i18n="bioTitle">Da Arquitetura ao Centro do Pop</h2>
+        <p class="section-desc" data-i18n="bioSubtitle">
+          Conheça a história verídica das irmãs Camilla e Giovanna Di Grecco: como o olhar estético de arquitetas e a paixão por coreografias e música pop deram origem a um dos projetos artísticos mais vibrantes do país.
+        </p>
+      </div>
+
+      <!-- 2 Core Feature Highlights -->
+      <div class="bio-cards-row">
+        <!-- Card 1: Architecture -->
+        <div class="glass-panel bio-feature-card">
+          <div class="bio-icon-box pink">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <h3 style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:0.65rem" data-i18n="card1Title">
+            A Visão Arquitetônica
+          </h3>
+          <p style="font-size:14px; color:#d4d4d8; line-height:1.65" data-i18n="card1Desc">
+            Ambas formadas em Arquitetura e Urbanismo, Camilla e Giovanna desenham cada detalhe de palco, jogo de luzes e simetria com o rigor conceitual de um projeto estrutural de vanguarda.
+          </p>
+        </div>
+
+        <!-- Card 2: Dance & Choreography -->
+        <div class="glass-panel bio-feature-card">
+          <div class="bio-icon-box purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <h3 style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:0.65rem" data-i18n="card2Title">
+            Coreografia Pop &amp; Presença Cênica
+          </h3>
+          <p style="font-size:14px; color:#d4d4d8; line-height:1.65" data-i18n="card2Desc">
+            Treinamento coreográfico intenso, sincronismo corporal de alto nível e presença de palco magnética trazem para os shows da Di Grecco uma energia contagiante que eletriza o público e as debutantes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone Timeline -->
+      <div class="milestones-box glass-panel">
+        <h3 style="font-family:var(--font-display); font-weight:800; font-size:1.6rem; color:#fff; text-align:center; margin-bottom:2.5rem" data-i18n="milestonesTitle">
+          Marcos Históricos da Di Grecco
+        </h3>
+
+        <div class="milestones-grid">
+          <div class="milestone-item">
+            <div class="milestone-dot"></div>
+            <span class="milestone-year">A Origem</span>
+            <h4 class="milestone-title">Das Pranchetas de Arquitetura ao Pop</h4>
+            <p class="milestone-desc">
+              Naturais de Cuiabá (MT), Camilla e Giovanna se formaram em Arquitetura e Urbanismo. Essa visão espacial e estética única hoje transparece no design de seus palcos, iluminação milimétrica e figurinos.
+            </p>
+          </div>
+
+          <div class="milestone-item">
+            <div class="milestone-dot"></div>
+            <span class="milestone-year">A Dança &amp; Sincronismo</span>
+            <h4 class="milestone-title">Coreografia Pop e Presença Cênica</h4>
+            <p class="milestone-desc">
+              Com anos de treinamento coreográfico e dedicação à dança pop contemporânea, a precisão milimétrica dos passos e a harmonia vocal ao vivo tornaram-se a assinatura inconfundível dos shows da Di Grecco.
+            </p>
+          </div>
+
+          <div class="milestone-item">
+            <div class="milestone-dot"></div>
+            <span class="milestone-year">2022</span>
+            <h4 class="milestone-title">Checkmate e Abertura para Luísa Sonza</h4>
+            <p class="milestone-desc">
+              Lançamento do estrondoso single 'Checkmate', que superou 344 mil views no YouTube. No mesmo ano, a dupla foi escolhida para abrir o grande show de Luísa Sonza em Cuiabá, consagrando seu nome na cena pop nacional.
+            </p>
+          </div>
+
+          <div class="milestone-item">
+            <div class="milestone-dot"></div>
+            <span class="milestone-year">2023 - Presente</span>
+            <h4 class="milestone-title">Turnê 'Checkmate', 'Veneno' e o Fenômeno dos 15 Anos</h4>
+            <p class="milestone-desc">
+              Com o lançamento de 'Veneno' e a consolidação de seus espetáculos coreografados, tornaram-se a atração pop mais disputada para festas de debutantes de luxo e festivais pelo país.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem">
+          <p style="font-size:13px; color:#a1a1aa">
+            Confira os videoclipes cinematográficos de "Checkmate" e "Veneno" no canal oficial.
+          </p>
+          <a href="https://www.youtube.com/c/DIGRECCO" target="_blank" rel="noopener noreferrer" class="btn-secondary-glass" style="color:#ef4444; border-color:rgba(239,68,68,0.4)">
+            <span>Assistir Clipes no YouTube Oficial</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div> <!-- end #page-biografia -->
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Bio & Branding -->
+        <div class="footer-col-bio">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem">
+            <div class="brand-avatar-box" style="width:48px; height:48px">
+              <img src="https://image-cdn-fa.spotifycdn.com/image/ab6761610000e5eb25b14169b981ec08ff0637c6" alt="Di Grecco" />
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display); font-weight:900; color:#fff; font-size:1.3rem">DI GRECCO</h3>
+              <p style="font-size:10px; text-transform:uppercase; color:#f472b6; font-weight:800">Camilla &amp; Giovanna</p>
+            </div>
+          </div>
+          <p style="font-size:13px; line-height:1.6; color:#a1a1aa; margin-bottom:1rem">
+            Dupla pop brasileira formada pelas irmãs Camilla Di Grecco e Giovanna Di Grecco. Da arquitetura e dança sincronizada aos maiores palcos e festas de 15 anos do Brasil.
+          </p>
+          <div class="pill-badge" style="font-size:11px">
+            <span>Design de Palco, Dança &amp; Pop Nacional</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Social Networks -->
+        <div class="footer-col-links">
+          <h4 class="footer-heading">Redes &amp; Plataformas Oficiais</h4>
+          <div class="socials-grid">
+            <a href="https://open.spotify.com/intl-es/artist/60IuUW9ZO7IiD4t1hwmO9d" target="_blank" rel="noopener noreferrer" class="social-card-link">
+              <div class="social-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.57.39-.87.21-2.39-1.46-5.4-1.79-8.94-.98-.35.08-.69-.14-.77-.49-.08-.34.14-.68.49-.77 3.88-.89 7.21-.51 9.88 1.13.3.18.39.57.21.9zM17.8 13.7c-.23.37-.71.49-1.08.26-2.73-1.68-6.9-2.17-10.13-1.19-.42.13-.86-.11-.98-.53-.13-.42.11-.86.53-.98 3.7-1.12 8.31-.57 11.4 1.34.37.24.49.72.26 1.1zm.15-2.85c-3.28-1.95-8.7-2.13-11.83-1.18-.5.15-1.04-.13-1.19-.64-.15-.5.14-1.04.64-1.19 3.65-1.11 9.64-.89 13.43 1.36.45.27.6.86.33 1.31-.27.46-.86.6-1.38.34z"/></svg>
+              </div>
+              <div>
+                <strong style="font-size:12px; color:#fff">Spotify</strong>
+                <p style="font-size:10px; color:#71717a">Perfil Verificado</p>
+              </div>
+            </a>
+
+            <a href="https://www.instagram.com/digrecco/" target="_blank" rel="noopener noreferrer" class="social-card-link">
+              <div class="social-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </div>
+              <div>
+                <strong style="font-size:12px; color:#fff">Instagram</strong>
+                <p style="font-size:10px; color:#71717a">@digrecco</p>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/c/DIGRECCO" target="_blank" rel="noopener noreferrer" class="social-card-link">
+              <div class="social-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ef4444"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"></polygon></svg>
+              </div>
+              <div>
+                <strong style="font-size:12px; color:#fff">YouTube</strong>
+                <p style="font-size:10px; color:#71717a">+344k Views</p>
+              </div>
+            </a>
+
+            <a href="https://www.tiktok.com/@digrecco" target="_blank" rel="noopener noreferrer" class="social-card-link">
+              <div class="social-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+              </div>
+              <div>
+                <strong style="font-size:12px; color:#fff">TikTok</strong>
+                <p style="font-size:10px; color:#71717a">Dancinhas Pop</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 3: Direct Booking -->
+        <div class="footer-col-contact">
+          <h4 class="footer-heading">Contratações de Shows &amp; Festas</h4>
+          <div style="padding:1.25rem; border-radius:1.25rem; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.3)">
+            <p style="font-size:12px; color:#d4d4d8; margin-bottom:10px">
+              WhatsApp Produção Executiva:
+            </p>
+            <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-submit" style="width:100%; padding:0.75rem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <span>WhatsApp Oficial</span>
+            </a>
+            <p style="font-size:11px; color:#71717a; text-align:center; margin-top:8px">
+              Shows em todo o Brasil e turnês internacionais.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom copyright line -->
+      <div class="footer-bottom-row">
+        <p>© <span id="current-year">2026</span> Todos os direitos reservados. Di Grecco Música &amp; Entretenimento.</p>
+        <div style="display:flex; gap:12px">
+          <a href="https://open.spotify.com/intl-es/artist/60IuUW9ZO7IiD4t1hwmO9d" target="_blank" rel="noopener noreferrer" style="color:#1DB954; font-weight:700">Di Grecco no Spotify</a>
+          <span>•</span>
+          <a href="https://www.instagram.com/digrecco/" target="_blank" rel="noopener noreferrer" style="color:#f472b6; font-weight:700">@digrecco</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       STICKY FLOATING ACTION BUTTONS (RIGHT SIDE)
+       ========================================================================= -->
+  <div class="floating-actions">
+    <!-- Spotify Quick Pill -->
+    <a href="https://open.spotify.com/intl-es/artist/60IuUW9ZO7IiD4t1hwmO9d" target="_blank" rel="noopener noreferrer" class="fab-btn fab-spotify" title="Ouvir no Spotify">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+      <span>Spotify Oficial</span>
+    </a>
+
+    <!-- WhatsApp Floating Button (Explicit WhatsApp Label - No phone number) -->
+    <a href="https://wa.me/5511973087302?text=Ol%C3%A1%20equipe%20Di%20Grecco!" target="_blank" rel="noopener noreferrer" class="fab-btn fab-whatsapp" title="Falar no WhatsApp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- DiGrecco Bot Striking Eye-Catching Floating Button -->
+    <button class="fab-btn fab-ai-chat" onclick="openChatModal()" title="Abrir DiGrecco Bot">
+      <span class="fab-ping-glow"></span>
+      <div class="fab-bot-icon-badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M3 14v-3a9 9 0 0 1 18 0v3" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+          <rect x="1.5" y="13" width="3.5" height="5.5" rx="1.5" fill="#38bdf8"></rect>
+          <rect x="19" y="13" width="3.5" height="5.5" rx="1.5" fill="#38bdf8"></rect>
+          <rect x="5.5" y="9" width="13" height="11" rx="3.5" fill="#18181b" stroke="#f472b6" stroke-width="1.6"></rect>
+          <circle cx="9.5" cy="14" r="1.3" fill="#38bdf8"></circle>
+          <circle cx="14.5" cy="14" r="1.3" fill="#38bdf8"></circle>
+          <path d="M10 17c.6.6 1.4.8 2 .8s1.4-.2 2-.8" stroke="#f472b6" stroke-width="1.3" stroke-linecap="round"></path>
+          <line x1="12" y1="9" x2="12" y2="4" stroke="#f472b6" stroke-width="2" stroke-linecap="round"></line>
+          <circle cx="12" cy="3" r="2" fill="#fbbf24"></circle>
+        </svg>
+      </div>
+      <div class="fab-bot-label">
+        <span class="fab-bot-title">DiGrecco Bot</span>
+        <span class="fab-bot-subtitle"><span class="bot-status-dot"></span>IA VIP</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       CHATBOT VIP MODAL (DiGrecco Bot)
+       ========================================================================= -->
+  <div id="chatbot-modal" class="modal-backdrop">
+    <div class="modal-dialog chat-dialog glass-panel-glow">
+      <!-- Header -->
+      <div class="chat-header">
+        <div style="display:flex; align-items:center; gap:12px">
+          <div class="chat-avatar-striking">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M3 14v-3a9 9 0 0 1 18 0v3" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+              <rect x="1.5" y="13" width="3.5" height="5.5" rx="1.5" fill="#38bdf8"></rect>
+              <rect x="19" y="13" width="3.5" height="5.5" rx="1.5" fill="#38bdf8"></rect>
+              <rect x="5.5" y="9" width="13" height="11" rx="3.5" fill="#09090b" stroke="#f472b6" stroke-width="1.6"></rect>
+              <circle cx="9.5" cy="14" r="1.3" fill="#38bdf8"></circle>
+              <circle cx="14.5" cy="14" r="1.3" fill="#38bdf8"></circle>
+              <path d="M10 17c.6.6 1.4.8 2 .8s1.4-.2 2-.8" stroke="#f472b6" stroke-width="1.3" stroke-linecap="round"></path>
+              <line x1="12" y1="9" x2="12" y2="4" stroke="#f472b6" stroke-width="2" stroke-linecap="round"></line>
+              <circle cx="12" cy="3" r="2" fill="#fbbf24"></circle>
+            </svg>
+            <span class="chat-avatar-status-dot"></span>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-display); font-weight:800; color:#fff; font-size:1.15rem; display:flex; align-items:center; gap:6px">
+              DiGrecco Bot
+              <span class="bot-vip-pill">VIP AI</span>
+            </h4>
+            <span style="font-size:11px; color:#cbd5e1">Asistente Oficial Di Grecco • 24/7</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px">
+          <!-- Chat Language Selector -->
+          <div class="lang-selector chat-lang-selector" style="background:rgba(255,255,255,0.08); padding:2px; border-radius:8px">
+            <button type="button" class="lang-btn" data-lang="es" onclick="setLanguage('es')" title="Español" style="padding:2px 6px; font-size:11px">
+              <span>🇪🇸</span><span>ES</span>
+            </button>
+            <button type="button" class="lang-btn" data-lang="pt" onclick="setLanguage('pt')" title="Português" style="padding:2px 6px; font-size:11px">
+              <span>🇧🇷</span><span>PT</span>
+            </button>
+            <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')" title="English" style="padding:2px 6px; font-size:11px">
+              <span>🇺🇸</span><span>EN</span>
+            </button>
+          </div>
+
+          <button class="btn-icon" onclick="closeChatModal()" title="Cerrar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Model & Language Info Bar -->
+      <div class="chat-config-bar">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px">
+          <div style="display:flex; align-items:center; gap:6px">
+            <strong style="color:#a1a1aa; font-size:11px">IA:</strong>
+            <span class="btn-secondary-glass" style="padding:2px 8px; font-size:10px; border-color:rgba(168,85,247,0.4); color:#d8b4fe">Gemini 3.1 Flash-Lite ⚡</span>
+            <span class="btn-secondary-glass" style="padding:2px 8px; font-size:10px; border-color:rgba(52,211,153,0.3); color:#34d399">✓ Detección Automática de Idioma</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:4px; color:#60a5fa; font-weight:600; font-size:11px">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>Información Verificada Di Grecco</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Messages History Container -->
+      <div id="chat-messages-container" class="chat-messages-container">
+        <!-- Messages appended dynamically by script.js -->
+      </div>
+
+      <!-- Quick Suggested Questions -->
+      <div style="padding:6px 12px; background:rgba(0,0,0,0.4); border-top:1px solid rgba(255,255,255,0.05); display:flex; gap:6px; overflow-x:auto; white-space:nowrap">
+        <button type="button" class="btn-secondary-glass" style="padding:3px 10px; font-size:11px; border-radius:9999px" id="chip-1" data-i18n="chatChipShow15" onclick="sendChatMessage(this.textContent)">Como funciona o show de 15 anos?</button>
+        <button type="button" class="btn-secondary-glass" style="padding:3px 10px; font-size:11px; border-radius:9999px" id="chip-2" data-i18n="chatChipBio" onclick="sendChatMessage(this.textContent)">História das artistas</button>
+        <button type="button" class="btn-secondary-glass" style="padding:3px 10px; font-size:11px; border-radius:9999px" id="chip-3" data-i18n="chatChipWhatsapp" onclick="sendChatMessage(this.textContent)">Contratar no WhatsApp</button>
+      </div>
+
+      <!-- Chat Input Row -->
+      <form class="chat-input-row" onsubmit="event.preventDefault(); sendChatMessage()">
+        <input type="text" id="chat-input-text" placeholder="Digite sua pergunta sobre Di Grecco ou shows..." data-i18n-placeholder="chatPlaceholder" class="chat-input" />
+
+        <button type="submit" class="btn-chat-send">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pure Vanilla JS Script -->
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users profile
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Fan guestbook messages and nested replies (Public comments and replies)
+    match /fanMessages/{messageId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+
+    // Debutante quotes
+    match /debutanteQuotes/{quoteId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Di Grecco - Site Oficial \u0026 Shows",
+  "description": "Página web oficial da dupla pop brasileira Di Grecco (Camilla \u0026 Giovanna). Músicas, prévias no Spotify, contratação para festas de 15 anos e assistente virtual inteligente.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
